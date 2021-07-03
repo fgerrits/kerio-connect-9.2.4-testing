@@ -3,7 +3,7 @@
 #
 # https://github.com/mosladil/kerio-connect-docker
 
-# Use the Ubuntu LTS with Kerio Connect
+# Use the Ubuntu 18.04 LTS with Kerio Connect
 FROM lsiobase/ubuntu:bionic
 MAINTAINER F Gerrits <izenetwors@gmail.com>
 
