@@ -20,7 +20,7 @@ ADD http://cdn.kerio.com/dwn/connect/connect-${CONNECT_VERSION}-${CONNECT_BUILD}
 
 # Install and setup project dependencies
 RUN echo root:kerio | chpasswd
-RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy update && apt-get -qqy install curl lsof supervisor sysstat && apt-get clean
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qqy update && apt-get -qqy install curl lsof lsb-release supervisor sysstat && apt-get clean
 RUN locale-gen en_US en_US.UTF-8
 RUN dpkg -i /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb && rm /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb
 RUN ln -s ${CONNECT_HOME}/sendmail /usr/sbin/sendmail
