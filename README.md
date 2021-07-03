@@ -1,1 +1,4 @@
-# kerio-connect-9.2.4
+# kerio-connect-docker
+Dockerized Kerio Connect
+
+```docker pull mosladil/kerio-connect```
