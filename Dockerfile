@@ -27,6 +27,7 @@ RUN ln -s ${CONNECT_HOME}/sendmail /usr/sbin/sendmail
 
 # Store hacks
 RUN mkdir -p \
+	/backup \
 	/data/dbSSL \
 	/data/license \
 	/data/settings \
@@ -52,7 +53,7 @@ RUN ln -s /data/charts.dat ${CONNECT_HOME} &&\
 RUN rm -rf /data
 
 # Define mountable directories.
-VOLUME ["/data", "/opt/kerio/mailserver/store"]
+VOLUME ["/backup","/data", "/opt/kerio/mailserver/store"]
 
 # Export ports
 EXPOSE 25 465 587 110 995 143 993 119 563 389 636 80 443 2000 4040 5222 5223 8800 8843
