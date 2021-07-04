@@ -16,7 +16,7 @@ ENV CONNECT_HOME /opt/kerio/mailserver
 
 # Container content
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD http://dwss4/kerio/kerio-connect-9.2.4-3252-linux-amd64.deb /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb
+ADD http://dwss4/kerio/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb
 
 # Install and setup project dependencies
 RUN echo root:kerio | chpasswd
@@ -31,8 +31,7 @@ RUN mkdir -p \
 	/data/license \
 	/data/settings \
 	/data/sslcert \
-	/data/store \
-	/backup
+	/data/store
 RUN touch \
 	/data/charts.dat \
 	/data/cluster.cfg \
@@ -53,7 +52,7 @@ RUN ln -s /data/charts.dat ${CONNECT_HOME} &&\
 RUN mkdir -p /backup
 
 # Define mountable directories.
-VOLUME ["/backup","/data", "/opt/kerio/mailserver/store"]
+VOLUME ["/data", "/opt/kerio/mailserver/store","/backup"]
 
 # Export ports
 EXPOSE 25 465 587 110 995 143 993 119 563 389 636 80 443 2000 4040 5222 5223 8800 8843
