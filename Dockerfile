@@ -1,7 +1,7 @@
 #
 # Kerio Connect Dockerfile
 #
-# https://github.com/mosladil/kerio-connect-docker
+# https://github.com/fgerrits/kerio-connect-9.2.4-testing
 
 # Use the Ubuntu 18.04 LTS with Kerio Connect
 FROM lsiobase/ubuntu:bionic
@@ -27,7 +27,6 @@ RUN ln -s ${CONNECT_HOME}/sendmail /usr/sbin/sendmail
 
 # Store hacks
 RUN mkdir -p \
-	/backup \
 	/data/dbSSL \
 	/data/license \
 	/data/settings \
@@ -50,6 +49,7 @@ RUN ln -s /data/charts.dat ${CONNECT_HOME} &&\
 	ln -s /data/stats.dat ${CONNECT_HOME} &&\
 	ln -s /data/store ${CONNECT_HOME} &&\
 	ln -s /data/users.cfg ${CONNECT_HOME}
+RUN mkdir -p /backup
 
 # Define mountable directories.
 VOLUME ["/backup","/data", "/opt/kerio/mailserver/store"]
