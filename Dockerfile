@@ -16,7 +16,7 @@ ENV CONNECT_HOME /opt/kerio/mailserver
 
 # Container content
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD http://cdn.kerio.com/dwn/connect/connect-${CONNECT_VERSION}-${CONNECT_BUILD}/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb
+ADD https://topserv/local/kerio/kerio-connect-9.2.4-3252-linux-amd64.deb /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb
 
 # Install and setup project dependencies
 RUN echo root:kerio | chpasswd
@@ -26,7 +26,13 @@ RUN dpkg -i /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.d
 RUN ln -s ${CONNECT_HOME}/sendmail /usr/sbin/sendmail
 
 # Store hacks
-RUN bash -c 'mkdir -p /data/{dbSSL,license,settings,sslcert,store}'
+RUN mkdir -p \
+	/data/dbSSL \
+	/data/license \
+	/data/settings \
+	/data/sslcert \
+	/data/store \
+	/backup
 
 RUN touch \
 	/data/charts.dat \
