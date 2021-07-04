@@ -16,7 +16,7 @@ ENV CONNECT_HOME /opt/kerio/mailserver
 
 # Container content
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD https://topserv/local/kerio/kerio-connect-9.2.4-3252-linux-amd64.deb /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb
+ADD http://topserv/local/kerio/kerio-connect-9.2.4-3252-linux-amd64.deb /tmp/kerio-connect-${CONNECT_VERSION}-${CONNECT_BUILD}-linux-amd64.deb
 
 # Install and setup project dependencies
 RUN echo root:kerio | chpasswd
