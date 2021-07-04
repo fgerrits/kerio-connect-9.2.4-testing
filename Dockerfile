@@ -8,7 +8,7 @@ FROM lsiobase/ubuntu:bionic
 MAINTAINER F Gerrits <izenetwors@gmail.com>
 
 # Kerio Connect
-ENV CONNECT_NAME kerio-connect-uts
+ENV CONNECT_NAME kerio-connect-uts-ts1
 ENV CONNECT_VERSION 9.2.4
 ENV CONNECT_BUILD 3252
 ENV CONNECT_BETA false
@@ -50,7 +50,6 @@ RUN ln -s /data/charts.dat ${CONNECT_HOME} &&\
 	ln -s /data/stats.dat ${CONNECT_HOME} &&\
 	ln -s /data/store ${CONNECT_HOME} &&\
 	ln -s /data/users.cfg ${CONNECT_HOME}
-RUN rm -rf /data
 
 # Define mountable directories.
 VOLUME ["/backup","/data", "/opt/kerio/mailserver/store"]
