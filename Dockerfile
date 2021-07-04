@@ -33,7 +33,6 @@ RUN mkdir -p \
 	/data/sslcert \
 	/data/store \
 	/backup
-
 RUN touch \
 	/data/charts.dat \
 	/data/cluster.cfg \
