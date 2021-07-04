@@ -27,6 +27,7 @@ RUN ln -s ${CONNECT_HOME}/sendmail /usr/sbin/sendmail
 
 # Store hacks
 RUN mkdir -p \
+	/data \
 	/data/dbSSL \
 	/data/license \
 	/data/settings \
